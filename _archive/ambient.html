@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 2s ease-in-out;
+  }
+
+.ambient-container {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #333;
+}
+
+p {
+  color: #555;
+}
+
+/* Add the following code for ambient color effect */
+@keyframes changeColor {
+  0% {
+    background-color: #82c0cc;
+  }
+  25% {
+    background-color: #a8c0cc;
+  }
+  50% {
+    background-color: #cc95a8;
+  }
+  75% {
+    background-color: #cc827f;
+  }
+  100% {
+    background-color: #a8cc82;
+  }
+}
+
+body:hover {
+  animation: changeColor .5s infinite;
+}
+</style>
+
+
+  <title>Ambient Color Website</title>
+</head>
+ <body>
+   
+</body>
+</html>
