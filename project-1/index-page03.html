@@ -21,14 +21,14 @@ div.a{
 	position: fixed;
 	right: 5%;
 	top: 55%;
-	background-color: lightgoldenrodyellow;
+/*	background-color: lightgoldenrodyellow;*/
 }
 
 div.b{
 	display: block;
 	width: 50vw;
 	padding: 20px;
-	background-color: greenyellow;
+/*	background-color: greenyellow;*/
 }
 
 h1.a{
@@ -71,6 +71,25 @@ p.b{
 	text-align: center;
 }
 
+.Navi > a {
+	  display: block;
+	  padding: 1em;
+	  cursor: pointer;
+	}
+	.Navi > a:before {
+	  content: "";
+	  display: block;
+	  width: .5em;
+	  height: .5em;
+	  background-color: gray;
+	  border-radius: 50%;
+	}
+	
+	.Navi > a:hover:before {
+	  background-color: black;
+	}
+
+
 </style>
 
 </head>
@@ -78,7 +97,9 @@ p.b{
 <body>
 
 	<div class="wrapper">
-		<a href="index.html">Back</a>
+		<nav class="Navi">
+			<a href="index.html"></a>
+		</nav>
 
 		<div class="a">
 			<h1 class="a">Speech At The Ceremony Of The Proclamation of The Congo's Independence</h1>
