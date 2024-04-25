@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Photo Collage Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> <!-- Include html2canvas -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,14 +13,13 @@
         #collage {
             display: flex;
             flex-wrap: wrap;
-            border: 2px solid black;
             margin-top: 20px;
+            padding: 10px;
         }
 
         .photo {
-            flex: 1 1 45%;
-            margin: 10px;
-            border: 1px solid gray;
+            flex: 0 0 45%;
+            margin: 0px;
             overflow: hidden;
         }
 
@@ -41,6 +41,7 @@
         <button id="snapButton">Snap!</button>
     </div>
     <div id="collage"></div>
+    <button id="downloadButton" class="hidden">Download Collage</button> <!-- Added download button -->
 
     <script>
         const captureButton = document.getElementById("captureButton");
@@ -48,6 +49,7 @@
         const cameraStream = document.getElementById("cameraStream");
         const snapButton = document.getElementById("snapButton");
         const collage = document.getElementById("collage");
+        const downloadButton = document.getElementById("downloadButton");
 
         let videoStream;
 
@@ -87,6 +89,20 @@
             }
 
             videoContainer.classList.add("hidden");
+            
+            // Display download button if there are images in the collage
+            if (collage.childElementCount > 0) {
+                downloadButton.classList.remove("hidden");
+            }
+        });
+
+        downloadButton.addEventListener("click", () => {
+            html2canvas(collage).then((canvas) => {
+                const link = document.createElement("a");
+                link.href = canvas.toDataURL("image/png");
+                link.download = "collage.png"; // Name of the downloaded file
+                link.click();
+            });
         });
     </script>
 </body>
