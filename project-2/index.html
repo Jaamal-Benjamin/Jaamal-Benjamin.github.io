@@ -33,12 +33,12 @@
         }
 
         #captureButton {
-            padding: 15px 30px; /* Larger button */
-            font-size: 20px; /* Larger font */
+            padding: 30px 10px; /* Larger button */
+            font-size: 10px; /* Larger font */
             background-color: #444; /* Dark background */
             color: white; /* White text */
             border: none;
-            border-radius: 5px; /* Rounded corners */
+            border-radius: 50%; /* Rounded corners */
             cursor: pointer; /* Cursor indication for clickability */
             margin-bottom: 20px; /* Space between button and other elements */
         }
@@ -48,12 +48,12 @@
         }
 
         #snapButton {
-            padding: 10px 20px; /* Smaller than capture button */
+            padding: 20px 20px; /* Smaller than capture button */
             font-size: 16px;
             background-color: red;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 50%;
             cursor: pointer;
             margin-top: 10px; /* Space between video and button */
         }
@@ -76,13 +76,15 @@
 </head>
 <body>
     <h1>Photo Collage Generator</h1>
-    <textarea id="userText" placeholder="Enter your text here"></textarea> <!-- New text area -->
+   
     <button id="captureButton">Take Photo</button> <!-- Larger button -->
     <div id="videoContainer" class="hidden">
         <video id="cameraStream" autoplay></video>
         <button id="snapButton">Snap!</button>
     </div>
     <div id="collage"></div> <!-- Collage area -->
+
+     <textarea id="userText" placeholder="Enter your text here"></textarea> <!-- New text area -->
 
     <script>
         const captureButton = document.getElementById("captureButton");
