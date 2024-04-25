@@ -2,12 +2,9 @@
 <html lang="en">
 <head>
     <title>Photo Collage Generator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive for desktop screens -->
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #000; /* Black background */
-            color: #fff; /* White text for visibility */
             padding: 20px;
             text-align: center;
         }
@@ -15,17 +12,15 @@
         #collage {
             display: flex;
             flex-wrap: wrap;
-            border: 2px solid white; /* White border for contrast */
+            border: 2px solid black;
             margin-top: 20px;
-            padding: 10px; /* Add padding for aesthetics */
         }
 
         .photo {
-            flex: 1 1 45%; /* Adjustable layout */
+            flex: 1 1 45%;
             margin: 10px;
             border: 1px solid gray;
             overflow: hidden;
-            background-color: #333; /* Dark background for images */
         }
 
         .photo img {
@@ -33,57 +28,19 @@
             height: auto;
         }
 
-        #captureButton {
-            padding: 20px 40px; /* Larger button for click */
-            font-size: 18px; /* Larger font for visibility */
-            background-color: #444; /* Dark background */
-            color: white; /* White text */
-            border: none;
-            border-radius: 10px; /* Rounded corners */
-            cursor: pointer; /* Cursor indication for clickability */
-            margin-bottom: 20px; /* Space between button and other elements */
-        }
-
-        #videoContainer {
-            display: none;
-        }
-
-        #snapButton {
-            padding: 15px 30px; /* Reasonable size for clicking */
-            font-size: 18px; /* Font size for visibility */
-            background-color: red;
-            color: white;
-            border: none;
-            border-radius: 10px; /* Rounded corners */
-            cursor: pointer; /* Cursor indication for clickability */
-            margin-top: 10px; /* Space between video and button */
-        }
-
         .hidden {
             display: none;
-        }
-
-        #userText {
-            width: 90%; /* Adjustable for desktop */
-            height: 50px; /* Consistent height */
-            font-size: 18px; /* Larger font for text area */
-            background-color: #333; /* Dark background */
-            color: white;
-            border: 1px solid gray;
-            border-radius: 10px; /* Rounded corners */
-            margin-bottom: 20px; /* Space between input and collage */
         }
     </style>
 </head>
 <body>
-    <h1>Photo Collage Generator</h1>
-    <textarea id="userText" placeholder="Enter your text here"></textarea> <!-- Text area for user input -->
-    <button id="captureButton">Take Photo</button> <!-- Button for desktop -->
+    <h1></h1>
+    <button id="captureButton">Take Photo</button>
     <div id="videoContainer" class="hidden">
-        <video id="cameraStream" autoplay></video> <!-- Video stream -->
-        <button id="snapButton">Snap!</button> <!-- Button to capture a snapshot -->
+        <video id="cameraStream" autoplay></video>
+        <button id="snapButton">Snap!</button>
     </div>
-    <div id="collage"></div> <!-- Collage area for displaying photos -->
+    <div id="collage"></div>
 
     <script>
         const captureButton = document.getElementById("captureButton");
@@ -91,7 +48,6 @@
         const cameraStream = document.getElementById("cameraStream");
         const snapButton = document.getElementById("snapButton");
         const collage = document.getElementById("collage");
-        const userText = document.getElementById("userText");
 
         let videoStream;
 
@@ -123,15 +79,11 @@
             photoContainer.className = "photo";
             photoContainer.appendChild(img);
 
-            const userTextNode = document.createElement("p");
-            userTextNode.textContent = userText.value; /* Add user text to collage */
-
             collage.appendChild(photoContainer);
-            collage.appendChild(userTextNode); /* Append user text */
 
             // Stop the camera after the snapshot
             if (videoStream) {
-                videoStream.getTracks().for each((track) => track stop());
+                videoStream.getTracks().forEach((track) => track.stop());
             }
 
             videoContainer.classList.add("hidden");
