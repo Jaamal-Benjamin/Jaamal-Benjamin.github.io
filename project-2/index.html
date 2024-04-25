@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Photo Collage Generator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive for desktop screens -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,13 +15,13 @@
         #collage {
             display: flex;
             flex-wrap: wrap;
-            border: .5px solid white; /* White border for contrast */
+            border: 2px solid white; /* White border for contrast */
             margin-top: 20px;
-            padding: 40px; /* Add padding for aesthetics */
+            padding: 10px; /* Add padding for aesthetics */
         }
 
         .photo {
-            flex: 1 1 45%; /* Adjusted for smaller screens */
+            flex: 1 1 45%; /* Adjustable layout */
             margin: 10px;
             border: 1px solid gray;
             overflow: hidden;
@@ -29,17 +29,17 @@
         }
 
         .photo img {
-            max-width: 75%;
+            max-width: 100%;
             height: auto;
         }
 
         #captureButton {
-            padding: 70px 40px; /* Larger button for touch */
-            font-size: 18px; /* Larger font for readability */
+            padding: 20px 40px; /* Larger button for click */
+            font-size: 18px; /* Larger font for visibility */
             background-color: #444; /* Dark background */
             color: white; /* White text */
             border: none;
-            border-radius: 50%; /* Larger rounded corners */
+            border-radius: 10px; /* Rounded corners */
             cursor: pointer; /* Cursor indication for clickability */
             margin-bottom: 20px; /* Space between button and other elements */
         }
@@ -49,13 +49,13 @@
         }
 
         #snapButton {
-            padding: 70px 40px; /* Comfortable tap size */
-            font-size: 18px; /* Matching font size */
+            padding: 15px 30px; /* Reasonable size for clicking */
+            font-size: 18px; /* Font size for visibility */
             background-color: red;
             color: white;
             border: none;
-            border-radius: 50%; /* Larger rounded corners */
-            cursor: pointer;
+            border-radius: 10px; /* Rounded corners */
+            cursor: pointer; /* Cursor indication for clickability */
             margin-top: 10px; /* Space between video and button */
         }
 
@@ -64,30 +64,29 @@
         }
 
         #userText {
-            width: 60%; /* Adjusted width for mobile */
-            height: 75px; /* Consistent height */
-            font-size: 18px; /* Larger font for touchscreens */
+            width: 90%; /* Adjustable for desktop */
+            height: 50px; /* Consistent height */
+            font-size: 18px; /* Larger font for text area */
             background-color: #333; /* Dark background */
-            color: greenyellow;
+            color: white;
             border: 1px solid gray;
-            border-radius: 10px; /* Larger rounded corners */
-            margin-top: 50px; /* Space between input and collage */
+            border-radius: 10px; /* Rounded corners */
+            margin-bottom: 20px; /* Space between input and collage */
         }
     </style>
 </head>
 <body>
     <h1>Photo Collage Generator</h1>
-    
-    <button id="captureButton">Take Photo</button> <!-- Larger touch-friendly button -->
-    <div id="videoContainer" class="hidden">
-        <video id="cameraStream" autoplay></video>
-        <button id="snapButton">Snap!</button> <!-- Snap button -->
-    </div>
-    <div id="collage"></div> <!-- Collage area -->
     <textarea id="userText" placeholder="Enter your text here"></textarea> <!-- Text area for user input -->
+    <button id="captureButton">Take Photo</button> <!-- Button for desktop -->
+    <div id="videoContainer" class="hidden">
+        <video id="cameraStream" autoplay></video> <!-- Video stream -->
+        <button id="snapButton">Snap!</button> <!-- Button to capture a snapshot -->
+    </div>
+    <div id="collage"></div> <!-- Collage area for displaying photos -->
+
     <script>
-        const captureButton =
- document.getElementById("captureButton");
+        const captureButton = document.getElementById("captureButton");
         const videoContainer = document.getElementById("videoContainer");
         const cameraStream = document.getElementById("cameraStream");
         const snapButton = document.getElementById("snapButton");
@@ -132,7 +131,7 @@
 
             // Stop the camera after the snapshot
             if (videoStream) {
-                videoStream getTracks().forEach((track) => track.stop());
+                videoStream.getTracks().for each((track) => track stop());
             }
 
             videoContainer.classList.add("hidden");
